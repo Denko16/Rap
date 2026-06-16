@@ -1,22 +1,8 @@
-name: Build APK
-on: [push]
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.10'
-      - name: Install system deps
-        run: |
-          sudo apt update
-          sudo apt install -y python3-pip git zip unzip openjdk-17-jdk
-      - name: Install buildozer
-        run: pip install buildozer
-      - name: Build APK
-        run: buildozer -v android debug
-      - uses: actions/upload-artifact@v4
-        with:
-          name: apk
-          path: bin/*.apk
+            - name: Download a Build Artifact
+  uses: actions/download-artifact@v3.1.0
+  with:
+    # Artifact name
+    name: # optional
+    # Destination path
+    path: # optional
+          
